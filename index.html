@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux — Операційна система GNU/Linux</title>
+  <meta name="description"
+    content="Навчальна сторінка про GNU/Linux: коротка інформація, дистрибутиви, команди CLI, BASH-скрипт авторизації та джерела." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <img src="tux.jpg" alt="Tux — маскот Linux" class="tux-img" onerror="this.style.cssText='font-size:7rem;line-height:130px;border:none;box-shadow:none;background:transparent;';this.src='';this.textContent='🐧';" />
+      <div class="hero-badge">Навчальна сторінка</div>
+      <h1>GNU/Linux</h1>
+      <p class="hero-subtitle">Вільна операційна система з відкритим вихідним кодом, що стала фундаментом сучасної
+        ІТ-інфраструктури — від смартфонів до суперкомп'ютерів.</p>
+    </div>
+  </header>
+
+  <nav aria-label="Розділи сторінки">
+    <div class="nav-inner">
+      <a class="nav-link" href="#about">📖 Про Linux</a>
+      <a class="nav-link" href="#distros">🐧 Дистрибутиви</a>
+      <a class="nav-link" href="#commands">💻 Команди CLI</a>
+      <a class="nav-link" href="#bash-script">🔐 BASH-скрипт</a>
+      <a class="nav-link" href="#sources">📚 Джерела</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ABOUT -->
+      <section id="about" class="fade-in">
+        <div class="section-header">
+          <div class="section-icon icon-cyan">📖</div>
+          <div>
+            <h2>Коротка інформація про GNU/Linux</h2><span class="section-line line-cyan"></span>
+          </div>
+        </div>
+        <div class="card">
+          <p style="font-size:1rem;color:var(--text-muted);margin-bottom:22px;line-height:1.8;">
+            <strong style="color:var(--text-primary);">GNU/Linux</strong> — сімейство вільних операційних систем з
+            відкритим вихідним кодом,
+            побудованих на базі <strong style="color:var(--accent-cyan);">ядра Linux</strong>, яке розробив
+            <strong style="color:var(--text-primary);">Лінус Торвальдс</strong> у 1991 році, та системних утиліт проєкту
+            <strong style="color:var(--accent-green);">GNU</strong> (ініційованого Річардом Столлманом у 1983 р.).
+            Поширюється під ліцензією <strong style="color:var(--accent-purple);">GPL</strong> — гарантує свободу
+            використання, вивчення, зміни та поширення коду.
+          </p>
+          <div class="info-grid">
+            <div class="info-tile">
+              <div class="info-tile-label">Засновник ядра</div>
+              <div class="info-tile-value">Лінус Торвальдс</div>
+            </div>
+            <div class="info-tile">
+              <div class="info-tile-label">Рік створення ядра</div>
+              <div class="info-tile-value">1991</div>
+            </div>
+            <div class="info-tile">
+              <div class="info-tile-label">Ліцензія</div>
+              <div class="info-tile-value">GNU GPL v2</div>
+            </div>
+            <div class="info-tile">
+              <div class="info-tile-label">Написана на</div>
+              <div class="info-tile-value">C, Assembly</div>
+            </div>
+            <div class="info-tile">
+              <div class="info-tile-label">Маскот</div>
+              <div class="info-tile-value">🐧 Tux (пінгвін)</div>
+            </div>
+            <div class="info-tile">
+              <div class="info-tile-label">Серверний ринок</div>
+              <div class="info-tile-value">&gt; 96% топ-сайтів</div>
+            </div>
+            <div class="info-tile">
+              <div class="info-tile-label">Суперкомп'ютери</div>
+              <div class="info-tile-value">100% зі списку TOP500</div>
+            </div>
+            <div class="info-tile">
+              <div class="info-tile-label">Android-пристрої</div>
+              <div class="info-tile-value">~3.9 млрд активних</div>
+            </div>
+          </div>
+          <p
+            style="margin-top:22px;font-size:0.9rem;color:var(--text-muted);line-height:1.8;border-left:3px solid var(--accent-cyan);padding-left:16px;">
+            Linux присутній повсюдно: веб-сервери, хмарні платформи (AWS, GCP, Azure), смартфони на Android,
+            вбудовані IoT-системи, наукові суперкомп'ютери, мережеве обладнання та навіть комп'ютери
+            Міжнародної космічної станції.
+          </p>
+        </div>
+      </section>
+
+      <!-- DISTROS -->
+      <section id="distros" class="fade-in">
+        <div class="section-header">
+          <div class="section-icon icon-green">🐧</div>
+          <div>
+            <h2>Популярні дистрибутиви Linux</h2><span class="section-line line-green"></span>
+          </div>
+        </div>
+        <div class="distro-grid">
+          <div class="distro-card">
+            <div class="distro-emoji">🟠</div>
+            <div>
+              <div class="distro-name">Ubuntu</div>
+              <div class="distro-desc">Найпопулярніший дистрибутив для початківців і серверів. Базується на Debian.
+              </div><span class="distro-tag">Debian-based</span>
+            </div>
+          </div>
+          <div class="distro-card">
+            <div class="distro-emoji">🔵</div>
+            <div>
+              <div class="distro-name">Debian</div>
+              <div class="distro-desc">Один з найстаріших і найстабільніших. Основа для безлічі інших дистрибутивів.
+              </div><span class="distro-tag">Незалежний</span>
+            </div>
+          </div>
+          <div class="distro-card">
+            <div class="distro-emoji">🟢</div>
+            <div>
+              <div class="distro-name">Linux Mint</div>
+              <div class="distro-desc">Зручний та елегантний. Ідеальний для переходу з Windows. На базі Ubuntu.</div>
+              <span class="distro-tag">Ubuntu-based</span>
+            </div>
+          </div>
+          <div class="distro-card">
+            <div class="distro-emoji">💜</div>
+            <div>
+              <div class="distro-name">Arch Linux</div>
+              <div class="distro-desc">Мінімалістичний rolling-release для досвідчених. Гнучке налаштування.</div><span
+                class="distro-tag">Незалежний</span>
+            </div>
+          </div>
+          <div class="distro-card">
+            <div class="distro-emoji">🐉</div>
+            <div>
+              <div class="distro-name">Kali Linux</div>
+              <div class="distro-desc">Дистрибутив для тестування безпеки та пентестингу від Offensive Security.</div>
+              <span class="distro-tag">Debian-based</span>
+            </div>
+          </div>
+          <div class="distro-card">
+            <div class="distro-emoji">🔴</div>
+            <div>
+              <div class="distro-name">Fedora</div>
+              <div class="distro-desc">Інноваційний дистрибутив від Red Hat з найновішими open-source технологіями.
+              </div><span class="distro-tag">RPM-based</span>
+            </div>
+          </div>
+          <div class="distro-card">
+            <div class="distro-emoji">🎩</div>
+            <div>
+              <div class="distro-name">CentOS / RHEL</div>
+              <div class="distro-desc">Корпоративний стандарт для серверів і критично важливих бізнес-систем.</div><span
+                class="distro-tag">RPM-based</span>
+            </div>
+          </div>
+          <div class="distro-card">
+            <div class="distro-emoji">⚡</div>
+            <div>
+              <div class="distro-name">openSUSE</div>
+              <div class="distro-desc">Стабільний і гнучкий. Відомий потужним графічним інструментом YaST.</div><span
+                class="distro-tag">RPM-based</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLI COMMANDS -->
+      <section id="commands" class="fade-in">
+        <div class="section-header">
+          <div class="section-icon icon-purple">💻</div>
+          <div>
+            <h2>Команди Linux CLI</h2><span class="section-line line-purple"></span>
+          </div>
+        </div>
+        <p style="color:var(--text-muted);margin-bottom:20px;font-size:0.9rem;">Натисніть на команду, щоб розгорнути
+          опис та приклади використання.</p>
+        <div class="cmd-list">
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">pwd</span><span class="cmd-short">Print Working Directory —
+                  вивести поточну директорію</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Виводить повний шлях до поточного робочого каталогу. Незамінна команда, щоб зорієнтуватись у файловій
+                системі.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">pwd</span>
+                <span class="output-text">/home/user</span>
+
+                <span class="prompt">user@linux:/var/log$</span> <span class="cmd-text">pwd</span>
+                <span class="output-text">/var/log</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">echo</span><span class="cmd-short">Вивести текст або значення
+                  змінної на екран</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Виводить рядок тексту або значення змінної. Широко застосовується у скриптах і для запису у файли.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">echo</span> <span
+                  style="color:#a5d6ff">"Привіт, Linux!"</span>
+                <span class="output-text">Привіт, Linux!</span>
+
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">echo</span> <span
+                  style="color:var(--accent-orange)">$HOME</span>
+                <span class="output-text">/home/user</span>
+
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">echo</span> <span
+                  style="color:#a5d6ff">"Текст"</span> &gt; file.txt <span class="comment"># запис у файл</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">ls</span><span class="cmd-short">List — показати вміст
+                  директорії</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Відображає список файлів і каталогів. Підтримує численні опції для різних форматів виведення.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">ls</span>
+                <span class="output-text">Desktop Documents Downloads Music Pictures</span>
+
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">ls -la</span> <span class="comment">#
+                  детальний список + приховані файли</span>
+                <span class="output-text">total 48
+                  drwxr-xr-x 8 user user 4096 Sep 26 12:00 .
+                  -rw-r--r-- 1 user user 220 Sep 25 10:00 .bash_logout</span>
+
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">ls -lh</span> /var/log <span
+                  class="comment"># читабельний розмір файлів</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">cd</span><span class="cmd-short">Change Directory — змінити
+                  поточну директорію</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Переміщає між каталогами файлової системи. Підтримує абсолютні та відносні шляхи.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">cd</span> /var/log
+                <span class="prompt">user@linux:/var/log$</span> <span class="cmd-text">cd</span> .. <span
+                  class="comment"># на рівень вгору</span>
+                <span class="prompt">user@linux:/var$</span> <span class="cmd-text">cd</span> ~ <span class="comment">#
+                  до домашньої директорії</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">cd</span> - <span class="comment"># до
+                  попередньої директорії</span>
+                <span class="output-text">/var</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">touch</span><span class="cmd-short">Створити порожній файл
+                  або оновити час модифікації</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Створює новий порожній файл або оновлює часову мітку існуючого. Зручна для швидкого створення файлів у
+                скриптах.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">touch</span> myfile.txt
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">touch</span> file1.txt file2.txt
+                file3.txt
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">ls -l</span> myfile.txt
+                <span class="output-text">-rw-r--r-- 1 user user 0 Sep 26 12:00 myfile.txt</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">mkdir</span><span class="cmd-short">Make Directory — створити
+                  нову директорію</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Створює одну або кілька директорій. З опцією <code style="color:var(--accent-cyan)">-p</code> формує
+                весь ланцюжок вкладених каталогів.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">mkdir</span> myproject
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">mkdir</span> -p projects/web/css <span
+                  class="comment"># вкладені каталоги</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">mkdir</span> dir1 dir2 dir3 <span
+                  class="comment"># кілька одночасно</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">ls</span>
+                <span class="output-text">dir1 dir2 dir3 myproject projects</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">cp</span><span class="cmd-short">Copy — копіювати файли та
+                  директорії</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Копіює файли та каталоги. Для рекурсивного копіювання директорій використовуйте прапорець <code
+                  style="color:var(--accent-cyan)">-r</code>.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">cp</span> file.txt backup.txt
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">cp</span> file.txt
+                /home/user/Documents/
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">cp</span> -r mydir/ /backup/mydir/
+                <span class="comment"># директорія рекурсивно</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">cp</span> -v file.txt /tmp/ <span
+                  class="comment"># verbose-режим</span>
+                <span class="output-text">'file.txt' -&gt; '/tmp/file.txt'</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">mv</span><span class="cmd-short">Move — переміщення або
+                  перейменування файлів</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Переміщує або перейменовує файли і каталоги. На відміну від <code
+                  style="color:var(--accent-cyan)">cp</code>, оригінал видаляється.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">mv</span> oldname.txt newname.txt <span
+                  class="comment"># перейменування</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">mv</span> file.txt /tmp/ <span
+                  class="comment"># переміщення</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">mv</span> *.txt Documents/ <span
+                  class="comment"># перемістити всі .txt</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">mv</span> -i file.txt dest/ <span
+                  class="comment"># з підтвердженням перезапису</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">rm</span><span class="cmd-short">Remove — видалити файли та
+                  директорії</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p style="color:var(--accent-orange)!important;">⚠️ Видаляє файли <strong>назавжди</strong>, без кошика!
+                Особливо обережно із <code style="color:var(--accent-cyan)">-rf</code>!</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">rm</span> file.txt
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">rm</span> -i file.txt <span
+                  class="comment"># з підтвердженням</span>
+                <span class="output-text">rm: remove regular file 'file.txt'? y</span>
+
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">rm</span> -r mydir/ <span
+                  class="comment"># видалити директорію</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">rm</span> *.log <span class="comment">#
+                  видалити всі .log файли</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-item">
+            <div class="cmd-header" onclick="toggleCmd(this)">
+              <div class="cmd-left"><span class="cmd-name">history</span><span class="cmd-short">Показати історію
+                  виконаних команд</span></div><span class="cmd-arrow">▼</span>
+            </div>
+            <div class="cmd-body">
+              <p>Виводить пронумерований список раніше введених команд. Можна повторювати команди за номером або шукати
+                серед них.</p>
+              <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">history</span>
+                <span class="output-text"> 1 pwd
+                  2 ls -la
+                  3 cd Documents
+                  4 touch notes.txt
+                  5 mkdir backup</span>
+
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">history</span> 5 <span
+                  class="comment"># показати останні 5 команд</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">!3</span> <span class="comment">#
+                  повторити команду №3</span>
+                <span class="prompt">user@linux:~$</span> <span class="cmd-text">history | grep</span> <span
+                  style="color:#a5d6ff">"ls"</span> <span class="comment"># пошук в історії</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- BASH SCRIPT -->
+      <section id="bash-script" class="fade-in">
+        <div class="section-header">
+          <div class="section-icon icon-orange">🔐</div>
+          <div>
+            <h2>BASH-скрипт: Авторизація в системі</h2><span class="section-line line-orange"></span>
+          </div>
+        </div>
+        <p style="color:var(--text-muted);margin-bottom:24px;font-size:0.95rem;">
+          Скрипт імітує процес авторизації в текстовому режимі — перевіряє логін та пароль,
+          обмежує кількість спроб (3 спроби) та виводить привітальне повідомлення після успішного входу.
+        </p>
+
+        <div class="card" style="margin-bottom:28px;padding:0;overflow:hidden;">
+          <div
+            style="background:#1c2128;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--text-muted);">📄
+              auth.sh</span>
+            <button class="copy-btn" style="position:static;" onclick="copyScript()">Copy script</button>
+          </div>
+          <div class="script-block"><span class="sh-shebang">#!/bin/bash</span>
+            <span class="sh-comment"># ============================================================</span>
+            <span class="sh-comment"># auth.sh — Скрипт авторизації в текстовому режимі</span>
+            <span class="sh-comment"># Демонстраційний BASH-скрипт для навчальних цілей</span>
+            <span class="sh-comment"># ============================================================</span>
+
+            <span class="sh-comment"># --- Кольори ANSI для виводу в термінал ---</span>
+            <span class="sh-var">RED</span>=<span class="sh-string">'\033[0;31m'</span>
+            <span class="sh-var">GREEN</span>=<span class="sh-string">'\033[0;32m'</span>
+            <span class="sh-var">YELLOW</span>=<span class="sh-string">'\033[1;33m'</span>
+            <span class="sh-var">CYAN</span>=<span class="sh-string">'\033[0;36m'</span>
+            <span class="sh-var">BOLD</span>=<span class="sh-string">'\033[1m'</span>
+            <span class="sh-var">NC</span>=<span class="sh-string">'\033[0m'</span> <span class="sh-comment"># No Color
+              (скидання кольору)</span>
+
+            <span class="sh-comment"># --- Облікові дані користувача ---</span>
+            <span class="sh-var">VALID_USER</span>=<span class="sh-string">"admin"</span>
+            <span class="sh-var">VALID_PASS</span>=<span class="sh-string">"linux2024"</span>
+            <span class="sh-var">MAX_ATTEMPTS</span>=3
+
+            <span class="sh-comment"># --- Функція: виведення банера ---</span>
+            <span class="sh-func">show_banner</span>() {
+            <span class="sh-cmd">clear</span>
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">"${CYAN}${BOLD}"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">" ╔════════════════════════════════╗"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">" ║ GNU/Linux Authorization ║"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">" ║ Система авторизації ║"</span>
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">"
+              ╚════════════════════════════════╝${NC}"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">""</span>
+            }
+
+            <span class="sh-comment"># --- Функція: перевірка облікових даних ---</span>
+            <span class="sh-func">check_credentials</span>() {
+            <span class="sh-keyword">local</span> <span class="sh-var">user</span>=<span class="sh-string">"$1"</span>
+            <span class="sh-keyword">local</span> <span class="sh-var">pass</span>=<span class="sh-string">"$2"</span>
+            <span class="sh-keyword">if</span> [[ <span class="sh-string">"$user"</span> == <span
+              class="sh-string">"$VALID_USER"</span> &amp;&amp; <span class="sh-string">"$pass"</span> == <span
+              class="sh-string">"$VALID_PASS"</span> ]]; <span class="sh-keyword">then</span>
+            <span class="sh-keyword">return</span> 0 <span class="sh-comment"># успіх</span>
+            <span class="sh-keyword">else</span>
+            <span class="sh-keyword">return</span> 1 <span class="sh-comment"># невдача</span>
+            <span class="sh-keyword">fi</span>
+            }
+
+            <span class="sh-comment"># --- Функція: привітальне повідомлення ---</span>
+            <span class="sh-func">welcome_message</span>() {
+            <span class="sh-keyword">local</span> <span class="sh-var">user</span>=<span class="sh-string">"$1"</span>
+            <span class="sh-var">DATE</span>=$(<span class="sh-cmd">date</span> <span class="sh-string">"+%d.%m.%Y
+              %H:%M:%S"</span>)
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">"${GREEN}"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">" ✓ Авторизацію успішно пройдено!"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">" ──────────────────────────────────"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">" Вітаємо, ${user}!"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">" Дата входу: ${DATE}"</span>
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">"${NC}"</span>
+            }
+
+            <span class="sh-comment"># ============ ГОЛОВНИЙ БЛОК ПРОГРАМИ ============</span>
+            <span class="sh-func">main</span>() {
+            <span class="sh-var">attempts</span>=0
+            show_banner
+
+            <span class="sh-keyword">while</span> [[ <span class="sh-var">$attempts</span> -lt <span
+              class="sh-var">$MAX_ATTEMPTS</span> ]]; <span class="sh-keyword">do</span>
+            <span class="sh-var">remaining</span>=$(( <span class="sh-var">MAX_ATTEMPTS</span> - <span
+              class="sh-var">attempts</span> ))
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">"${YELLOW} Спроб залишилось:
+              ${remaining}${NC}"</span>
+
+            <span class="sh-cmd">echo</span> -n <span class="sh-string">" Логін: "</span>
+            <span class="sh-cmd">read</span> -r <span class="sh-var">username</span>
+
+            <span class="sh-cmd">echo</span> -n <span class="sh-string">" Пароль: "</span>
+            <span class="sh-cmd">read</span> -rs <span class="sh-var">password</span> <span class="sh-comment"># -s
+              приховує введення пароля</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">""</span>; <span class="sh-cmd">echo</span> <span
+              class="sh-string">""</span>
+
+            <span class="sh-keyword">if</span> check_credentials <span class="sh-string">"$username"</span> <span
+              class="sh-string">"$password"</span>; <span class="sh-keyword">then</span>
+            welcome_message <span class="sh-string">"$username"</span>
+            <span class="sh-keyword">exit</span> 0
+            <span class="sh-keyword">else</span>
+            (( <span class="sh-var">attempts</span>++ ))
+            <span class="sh-keyword">if</span> [[ <span class="sh-var">$attempts</span> -lt <span
+              class="sh-var">$MAX_ATTEMPTS</span> ]]; <span class="sh-keyword">then</span>
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">"${RED} ✗ Невірний логін або
+              пароль.${NC}"</span>
+            <span class="sh-cmd">echo</span> <span class="sh-string">""</span>
+            <span class="sh-cmd">sleep</span> 1
+            <span class="sh-keyword">fi</span>
+            <span class="sh-keyword">fi</span>
+            <span class="sh-keyword">done</span>
+
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">"${RED}${BOLD} ✗ Перевищено максимальну
+              кількість спроб."</span>
+            <span class="sh-cmd">echo</span> -e <span class="sh-string">" Обліковий запис тимчасово
+              заблоковано.${NC}"</span>
+            <span class="sh-keyword">exit</span> 1
+            }
+
+            <span class="sh-comment"># Запуск головної функції</span>
+            <span class="sh-func">main</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:1rem;font-weight:600;">🖥️ Інтерактивний симулятор</span>
+          <span style="font-size:0.82rem;color:var(--text-muted);">Логін: <code
+              style="color:var(--accent-cyan)">admin</code> &nbsp;|&nbsp; Пароль: <code
+              style="color:var(--accent-cyan)">linux2024</code></span>
+        </div>
+        <div class="terminal-wrapper">
+          <div class="terminal-bar">
+            <div class="t-dots">
+              <div class="t-dot t-dot-r"></div>
+              <div class="t-dot t-dot-y"></div>
+              <div class="t-dot t-dot-g"></div>
+            </div>
+            <div class="t-title">auth.sh — bash</div>
+            <button class="btn-reset" onclick="resetAuth()">↺ Скинути</button>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div id="auth-output"></div>
+          </div>
+          <div class="terminal-input-row" id="input-row">
+            <span class="t-prompt-label" id="input-prompt-label">Логін:</span>
+            <input type="text" id="auth-input" placeholder="введіть значення та натисніть Enter" autocomplete="off"
+              spellcheck="false" />
+            <button class="btn-run" onclick="submitAuth()">Enter ↵</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources" class="fade-in">
+        <div class="section-header">
+          <div class="section-icon icon-cyan">📚</div>
+          <div>
+            <h2>Джерела інформації</h2><span class="section-line line-cyan"></span>
+          </div>
+        </div>
+        <div class="sources-grid">
+          <a class="source-card" href="https://www.linux.org" target="_blank" rel="noopener">
+            <div class="source-icon">🌐</div>
+            <div>
+              <div class="source-name">Linux.org</div>
+              <div class="source-url">www.linux.org</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://kernel.org" target="_blank" rel="noopener">
+            <div class="source-icon">⚙️</div>
+            <div>
+              <div class="source-name">The Linux Kernel Archive</div>
+              <div class="source-url">kernel.org</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://www.gnu.org" target="_blank" rel="noopener">
+            <div class="source-icon">📜</div>
+            <div>
+              <div class="source-name">GNU Project</div>
+              <div class="source-url">www.gnu.org</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://ubuntu.com" target="_blank" rel="noopener">
+            <div class="source-icon">🟠</div>
+            <div>
+              <div class="source-name">Ubuntu Official</div>
+              <div class="source-url">ubuntu.com</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://distrowatch.com" target="_blank" rel="noopener">
+            <div class="source-icon">📊</div>
+            <div>
+              <div class="source-name">DistroWatch</div>
+              <div class="source-url">distrowatch.com</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://www.man7.org/linux/man-pages/" target="_blank" rel="noopener">
+            <div class="source-icon">📖</div>
+            <div>
+              <div class="source-name">Linux Man Pages</div>
+              <div class="source-url">man7.org/linux/man-pages</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://www.tldp.org" target="_blank" rel="noopener">
+            <div class="source-icon">📝</div>
+            <div>
+              <div class="source-name">Linux Documentation Project</div>
+              <div class="source-url">tldp.org</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://linuxcommand.org" target="_blank" rel="noopener">
+            <div class="source-icon">💻</div>
+            <div>
+              <div class="source-name">LinuxCommand.org</div>
+              <div class="source-url">linuxcommand.org</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://uk.wikipedia.org/wiki/Linux" target="_blank" rel="noopener">
+            <div class="source-icon">📕</div>
+            <div>
+              <div class="source-name">Вікіпедія — Linux</div>
+              <div class="source-url">uk.wikipedia.org/wiki/Linux</div>
+            </div>
+          </a>
+          <a class="source-card" href="https://www.bash.academy" target="_blank" rel="noopener">
+            <div class="source-icon">🐚</div>
+            <div>
+              <div class="source-name">The Bash Guide</div>
+              <div class="source-url">bash.academy</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Розроблено за допомогою штучного інтелекту (Google Gemini) &nbsp;•&nbsp; 2026</p>
+  </footer>
+
+  <script>
+    // FADE-IN
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // ACCORDION
+    function toggleCmd(hdr) {
+      const item = hdr.closest('.cmd-item');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.cmd-item.open').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    }
+
+    // COPY CODE
+    function copyCode(btn) {
+      const blk = btn.closest('.code-block');
+      const txt = blk.innerText.replace(/^Copy\n/, '').trim();
+      navigator.clipboard.writeText(txt).then(() => {
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    function copyScript() {
+      const t = `#!/bin/bash
+# auth.sh — Скрипт авторизації в текстовому режимі
+RED='\\033[0;31m'; GREEN='\\033[0;32m'; YELLOW='\\033[1;33m'
+CYAN='\\033[0;36m'; BOLD='\\033[1m'; NC='\\033[0m'
+VALID_USER="admin"; VALID_PASS="linux2024"; MAX_ATTEMPTS=3
+
+show_banner() {
+    clear
+    echo -e "${CYAN}${BOLD}"
+    echo "  ╔════════════════════════════════╗"
+    echo "  ║   GNU/Linux  Authorization     ║"
+    echo "  ║      Система авторизації       ║"
+    echo -e "  ╚════════════════════════════════╝${NC}"
+    echo ""
+}
+
+check_credentials() {
+    local user="$1"; local pass="$2"
+    if [[ "$user" == "$VALID_USER" && "$pass" == "$VALID_PASS" ]]; then return 0; else return 1; fi
+}
+
+welcome_message() {
+    local user="$1"; DATE=$(date "+%d.%m.%Y %H:%M:%S")
+    echo -e "${GREEN}"
+    echo "  ✓ Авторизацію успішно пройдено!"
+    echo "  Вітаємо, $user!  |  Дата входу: $DATE"
+    echo -e "${NC}"
+}
+
+main() {
+    attempts=0; show_banner
+    while [[ $attempts -lt $MAX_ATTEMPTS ]]; do
+        remaining=$(( MAX_ATTEMPTS - attempts ))
+        echo -e "${YELLOW}  Спроб залишилось: $remaining${NC}"
+        echo -n "  Логін: "; read -r username
+        echo -n "  Пароль: "; read -rs password; echo ""
+        if check_credentials "$username" "$password"; then
+            welcome_message "$username"; exit 0
+        else
+            (( attempts++ ))
+            if [[ $attempts -lt $MAX_ATTEMPTS ]]; then
+                echo -e "${RED}  ✗ Невірний логін або пароль.${NC}"; sleep 1
+            fi
+        fi
+    done
+    echo -e "${RED}${BOLD}  ✗ Перевищено ліміт спроб. Заблоковано.${NC}"; exit 1
+}
+main`;
+      navigator.clipboard.writeText(t).then(() => {
+        const b = document.querySelector('[onclick="copyScript()"]');
+        b.textContent = '✓ Copied!'; b.classList.add('copied');
+        setTimeout(() => { b.textContent = 'Copy script'; b.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // AUTH SIMULATOR
+    const VU = 'admin', VP = 'linux2024', MA = 3;
+    let st = 'init', att = 0, eu = '';
+    const out = document.getElementById('auth-output');
+    const tb = document.getElementById('terminal-body');
+    const ir = document.getElementById('input-row');
+    const ai = document.getElementById('auth-input');
+    const pl = document.getElementById('input-prompt-label');
+
+    function ln(h) { const d = document.createElement('div'); d.innerHTML = h; out.appendChild(d); tb.scrollTop = tb.scrollHeight; }
+    function lnb() { ln('<br/>'); }
+
+    function showBanner() {
+      ln('');
+      ln('<span style="color:var(--accent-cyan);font-weight:700;">  ╔════════════════════════════════╗</span>');
+      ln('<span style="color:var(--accent-cyan);font-weight:700;">  ║   GNU/Linux  Authorization     ║</span>');
+      ln('<span style="color:var(--accent-cyan);font-weight:700;">  ║      Система авторизації       ║</span>');
+      ln('<span style="color:var(--accent-cyan);font-weight:700;">  ╚════════════════════════════════╝</span>');
+      ln(''); askUser();
+    }
+
+    function askUser() {
+      const r = MA - att;
+      ln('<span style="color:var(--accent-orange)">  Спроб залишилось: ' + r + '</span>');
+      pl.textContent = '  Логін:'; ai.type = 'text'; ai.value = '';
+      ai.placeholder = 'введіть логін'; st = 'user'; ai.focus();
+    }
+
+    function submitAuth() {
+      const v = ai.value;
+      if (st === 'user') {
+        eu = v;
+        ln('  Логін: <span style="color:var(--text-primary)">' + (v || '(порожньо)') + '</span>');
+        pl.textContent = '  Пароль:'; ai.type = 'password'; ai.value = '';
+        ai.placeholder = 'введіть пароль'; st = 'pass'; ai.focus();
+      } else if (st === 'pass') {
+        ln('  Пароль: <span style="color:var(--text-muted)">••••••••</span>');
+        lnb();
+        if (eu === VU && v === VP) {
+          const now = new Date();
+          const ds = now.toLocaleDateString('uk-UA') + ' ' + now.toLocaleTimeString('uk-UA');
+          ln('<span style="color:var(--accent-green)">  ✓ Авторизацію успішно пройдено!</span>');
+          ln('<span style="color:var(--accent-green)">  ──────────────────────────────────</span>');
+          ln('<span style="color:var(--accent-green)">  Вітаємо, ' + eu + '!</span>');
+          ln('<span style="color:var(--accent-green)">  Дата входу: ' + ds + '</span>');
+          lnb();
+          ln('<span style="color:var(--text-muted)">  $ _</span><span class="cursor"></span>');
+          ir.style.display = 'none'; st = 'done';
+        } else {
+          att++;
+          if (att < MA) {
+            ln('<span style="color:#ff5f57">  ✗ Невірний логін або пароль. Спробуйте ще раз.</span>');
+            lnb(); askUser();
+          } else {
+            ln('<span style="color:#ff5f57;font-weight:700">  ✗ Перевищено максимальну кількість спроб (3/3).</span>');
+            ln('<span style="color:#ff5f57">  Обліковий запис тимчасово заблоковано.</span>');
+            ir.style.display = 'none'; st = 'done';
+          }
+        }
+        tb.scrollTop = tb.scrollHeight;
+      }
+    }
+
+    function resetAuth() {
+      out.innerHTML = ''; ir.style.display = 'flex';
+      att = 0; eu = ''; st = 'init'; ai.type = 'text'; ai.value = '';
+      showBanner();
+    }
+
+    ai.addEventListener('keydown', e => { if (e.key === 'Enter') submitAuth(); });
+    showBanner();
+  </script>
+</body>
+
+</html>
